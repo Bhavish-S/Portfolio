@@ -238,19 +238,25 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ========================================================================
-  // PHASE 5 — GLASSMORPHISM NAV ON SCROLL
+  // PHASE 5 — SMART NAV ON SCROLL
   // ========================================================================
   const navbar = document.getElementById('navbar');
-  const heroSection = document.getElementById('hero');
+  let lastScrollY = window.scrollY;
 
-  if (navbar && heroSection) {
-    const heroHeight = heroSection.offsetHeight;
+  if (navbar) {
     window.addEventListener('scroll', () => {
-      if (window.scrollY > heroHeight - 100) {
-        navbar.classList.add('navbar--scrolled');
-      } else {
-        navbar.classList.remove('navbar--scrolled');
+      const currentScrollY = window.scrollY;
+      
+      // If scrolled down past 100px, hide the navbar
+      if (currentScrollY > 100 && currentScrollY > lastScrollY) {
+        navbar.style.transform = 'translateY(-100%)';
+      } 
+      // If scrolling up, or at the very top, show the navbar
+      else {
+        navbar.style.transform = 'translateY(0)';
       }
+      
+      lastScrollY = currentScrollY;
     }, { passive: true });
   }
 
