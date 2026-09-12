@@ -221,19 +221,42 @@ document.addEventListener('DOMContentLoaded', () => {
   const formSuccess = document.getElementById('form-success');
 
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       
       // Show loading state
       submitBtn.classList.add('btn-loading');
       submitBtn.disabled = true;
 
-      // Simulate send (replace with real backend if needed)
-      setTimeout(() => {
+      const formData = new FormData(contactForm);
+      const actionUrl = contactForm.getAttribute('action');
+
+      try {
+        const response = await fetch(actionUrl, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          // Success
+          submitBtn.classList.remove('btn-loading');
+          contactForm.style.display = 'none';
+          formSuccess.classList.add('active');
+          contactForm.reset();
+        } else {
+          // Error handling
+          alert('Oops! There was a problem submitting your form.');
+          submitBtn.classList.remove('btn-loading');
+          submitBtn.disabled = false;
+        }
+      } catch (error) {
+        alert('Oops! There was a problem submitting your form.');
         submitBtn.classList.remove('btn-loading');
-        contactForm.style.display = 'none';
-        formSuccess.classList.add('active');
-      }, 1500);
+        submitBtn.disabled = false;
+      }
     });
   }
 
