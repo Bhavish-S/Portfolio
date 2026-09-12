@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alex Chen - Full Stack Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            black: '#0A0A0A',
+            surface: '#141414',
+            accent: '#E2FF3C',
+            white: '#FFFFFF',
+            muted: '#A1A1AA',
+            darkmuted: '#52525B',
+          },
+          fontFamily: {
+            heading: ['Syne', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --easing: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    body {
+      background-color: #0A0A0A;
+      cursor: none;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+    .text-reveal {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+    .grain {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.03;
+      background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+    }
+    .custom-cursor {
+      position: fixed;
+      width: 12px;
+      height: 12px;
+      background: #E2FF3C;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 10000;
+      transition: transform 0.15s var(--easing), background 0.3s ease;
+      transform: translate(-50%, -50%);
+    }
+    .cursor-hover {
+      transform: translate(-50%, -50%) scale(4);
+      background: #FFFFFF;
+      mix-blend-mode: difference;
+    }
+  </style>
+</head>
+<body class="bg-black font-body text-white antialiased">
+  <div class="grain"></div>
+  <div class="custom-cursor" id="cursor"></div>
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 w-full z-50 mix-blend-difference">
+    <div class="max-w-screen-2xl mx-auto px-6 py-8 flex items-center justify-between">
+      <a href="#" class="font-heading font-bold text-2xl tracking-tighter text-white">
+        ALEX<span class="text-accent">.</span>CHEN
+      </a>
+      <div class="flex items-center gap-12">
+        <div class="hidden md:flex items-center gap-8 font-medium text-sm uppercase tracking-widest">
+          <a href="#work" class="text-white/60 hover:text-white transition-colors duration-300 cursor-pointer">Work</a>
+          <a href="#about" class="text-white/60 hover:text-white transition-colors duration-300 cursor-pointer">About</a>
+          <a href="#skills" class="text-white/60 hover:text-white transition-colors duration-300 cursor-pointer">Skills</a>
+        </div>
+        <a href="#contact" class="bg-accent text-black font-bold px-6 py-2 text-sm uppercase tracking-tighter hover:bg-white transition-all duration-300 cursor-pointer">
+          Let's Talk
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="min-h-screen flex items-center px-6 relative overflow-hidden">
+    <div class="max-w-screen-2xl mx-auto w-full grid lg:grid-cols-12 gap-8 items-center">
+      <div class="lg:col-span-8 z-10">
+        <p class="text-accent font-medium mb-6 uppercase tracking-[0.3em] text-sm">Available for projects</p>
+        <h1 class="font-heading text-7xl md:text-9xl font-extrabold text-white mb-8 leading-[0.9] tracking-tighter">
+          CRAFTING <br>
+          <span class="text-accent">DIGITAL</span> <br>
+          EXPERIENCES
+        </h1>
+        <p class="text-muted text-xl md:text-2xl leading-relaxed mb-12 max-w-2xl font-light">
+          I blend <span class="text-white font-medium">beautiful design</span> with <span class="text-white font-medium">powerful functionality</span>. Specializing in React, Node.js, and modern web technologies.
+        </p>
+        <div class="flex flex-wrap gap-6">
+          <a href="#work" class="bg-white text-black font-bold px-10 py-5 rounded-none transition-all duration-300 cursor-pointer inline-flex items-center gap-3 hover:bg-accent uppercase tracking-tighter">
+            View Portfolio
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+          <a href="#contact" class="border border-white/20 hover:border-accent text-white font-bold px-10 py-5 rounded-none transition-all duration-300 cursor-pointer uppercase tracking-tighter">
+            Download CV
+          </a>
+        </div>
+      </div>
+      <div class="lg:col-span-4 relative hidden lg:block">
+        <div class="aspect-[3/4] bg-surface border border-white/10 relative overflow-hidden">
+           <div class="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent"></div>
+           <div class="absolute inset-0 flex items-center justify-center">
+             <span class="font-heading text-9xl font-bold text-white/5 select-none">AC</span>
+           </div>
+        </div>
+        <!-- Decor -->
+        <div class="absolute -bottom-6 -left-6 w-32 h-32 border-l-2 border-b-2 border-accent"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work Section -->
+  <section id="work" class="py-32 px-6 bg-black relative">
+    <div class="max-w-screen-2xl mx-auto">
+      <div class="grid lg:grid-cols-12 gap-8 mb-24">
+        <div class="lg:col-span-6">
+          <p class="text-accent font-medium mb-4 uppercase tracking-[0.3em] text-sm">Selected Works</p>
+          <h2 class="font-heading text-6xl md:text-8xl font-extrabold text-white tracking-tighter leading-none">
+            FEATURED <br>PROJECTS
+          </h2>
+        </div>
+        <div class="lg:col-span-6 flex items-end">
+          <p class="text-muted text-xl max-w-md font-light leading-relaxed">
+            A collection of digital products where I push the boundaries of interaction and visual storytelling.
+          </p>
+        </div>
+      </div>
+
+      <!-- Asymmetric Project Grid -->
+      <div class="grid lg:grid-cols-12 gap-16">
+        <!-- Project 1: Large Span -->
+        <div class="lg:col-span-8 group cursor-pointer">
+          <div class="relative aspect-video bg-surface overflow-hidden border border-white/10 transition-all duration-500 group-hover:border-accent">
+            <div class="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+              <span class="bg-white text-black font-bold px-6 py-3 uppercase text-xs tracking-widest">Explore Project</span>
+            </div>
+          </div>
+          <div class="mt-6 flex justify-between items-start">
+            <div>
+              <h3 class="font-heading text-3xl font-bold text-white tracking-tighter">E-Commerce Platform</h3>
+              <p class="text-muted mt-2 max-w-sm">Real-time inventory & Stripe integration</p>
+            </div>
+            <div class="flex gap-2">
+              <span class="text-xs text-white/40 uppercase tracking-widest">React / TS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Small Span -->
+        <div class="lg:col-span-4 group cursor-pointer mt-12 lg:mt-32">
+          <div class="relative aspect-square bg-surface overflow-hidden border border-white/10 transition-all duration-500 group-hover:border-accent">
+            <div class="absolute inset-0 bg-gradient-to-tr from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+              <span class="bg-white text-black font-bold px-6 py-3 uppercase text-xs tracking-widest">Explore Project</span>
+            </div>
+          </div>
+          <div class="mt-6">
+            <h3 class="font-heading text-2xl font-bold text-white tracking-tighter">SaaS Dashboard</h3>
+            <p class="text-muted mt-2">Analytics & Real-time visualization</p>
+          </div>
+        </div>
+
+        <!-- Project 3: Small Span -->
+        <div class="lg:col-span-4 group cursor-pointer">
+          <div class="relative aspect-square bg-surface overflow-hidden border border-white/10 transition-all duration-500 group-hover:border-accent">
+            <div class="absolute inset-0 bg-gradient-to-bl from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+              <span class="bg-white text-black font-bold px-6 py-3 uppercase text-xs tracking-widest">Explore Project</span>
+            </div>
+          </div>
+          <div class="mt-6">
+            <h3 class="font-heading text-2xl font-bold text-white tracking-tighter">Task Manager</h3>
+            <p class="text-muted mt-2">Collaborative kanban systems</p>
+          </div>
+        </div>
+
+        <!-- Project 4: Large Span -->
+        <div class="lg:col-span-8 group cursor-pointer">
+          <div class="relative aspect-video bg-surface overflow-hidden border border-white/10 transition-all duration-500 group-hover:border-accent">
+            <div class="absolute inset-0 bg-gradient-to-tl from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+              <span class="bg-white text-black font-bold px-6 py-3 uppercase text-xs tracking-widest">Explore Project</span>
+            </div>
+          </div>
+          <div class="mt-6 flex justify-between items-start">
+            <div>
+              <h3 class="font-heading text-3xl font-bold text-white tracking-tighter">Fitness Tracker</h3>
+              <p class="text-muted mt-2 max-w-sm">Cross-platform mobile health app</p>
+            </div>
+            <div class="flex gap-2">
+              <span class="text-xs text-white/40 uppercase tracking-widest">Native / AWS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div}
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-32 px-6 bg-surface">
+    <div class="max-w-screen-2xl mx-auto">
+      <div class="grid lg:grid-cols-12 gap-8 mb-24">
+        <div class="lg:col-span-6">
+          <p class="text-accent font-medium mb-4 uppercase tracking-[0.3em] text-sm">Expertise</p>
+          <h2 class="font-heading text-6xl md:text-8xl font-extrabold text-white tracking-tighter leading-none">
+            CORE <br>STACK
+          </h2>
+        </div>
+        <div class="lg:col-span-6 flex items-end">
+          <p class="text-muted text-xl max-w-md font-light leading-relaxed">
+            A refined toolkit of technologies focused on performance, scalability, and exceptional user experience.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-px bg-white/10 border border-white/10">
+        <!-- Frontend -->
+        <div class="bg-black p-12 group hover:bg-surface transition-all duration-500">
+          <div class="w-12 h-12 rounded-none bg-accent flex items-center justify-center mb-12 group-hover:scale-110 transition-transform duration-500">
+            <svg class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="font-heading text-3xl font-bold text-white mb-8 tracking-tighter">Frontend</h3>
+          <div class="flex flex-wrap gap-3">
+            <span class="px-3 py-1 border border-white/10 text-white/60 text-xs uppercase tracking-widest hover:border-accent hover:text-accent transition-all duration-300 cursor-default">React</span>
+            <span class="px-3 py-1 border border-white/10 text-white/60 text-xs uppercase tracking-widest hover:border-accent hover:text-accent transition-all duration-300 cursor-default">Next.js</span>
+            <span class="px-3 py-1 border border-white/10 text-white/60 text-xs uppercase tracking-widest hover:border-accent hover:text-accent transition-all duration-300 cursor-default">TypeScript</span>
+            <span class="px-3 py-1 border border-white/10 text-white/60 text-xs uppercase tracking-widest hover:border-accent hover:text-accent transition-all duration-300 cursor-default">Vue.js</span>
+            <span class="px-3 py-1 border border-white/10 text-white/60 text-xs uppercase tracking-widest hover:border-accent hover:text-accent transition-all duration-300 cursor-default">Tailwind CSS</span>
+            <span class="px-3 py-1 border border-white/10 text-white/60 text-xs uppercase tracking-widest hover:border-accent hover:text-accent transition-all duration-300 cursor-default">Framer Motion</span>
+          </div>
+        </div>
+
+        <!-- Backend -->
+        <div class="bg-black p-12 group hover:bg-surface transition-all duration-500">
+          <div class="w-12 h-12 rounded-none bg-white flex items-center justify-center mb-12 group-hover:scale-110 transition-transform duration-500">
+            <svg class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/>
+            </svg>
+          </div>
+          <h3 class="font-heading text-3xl font-bold text-white mb-8 tracking-tighter">Backend</h3>
+          <div class="flex flex-wrap gap-3">
+            <span class="px-3 py-1 border border-white/10 text-white/60 text-xs uppercase tracking-widest hover:border-accent hover:text-accent transition-all duration-300 cursor-default">Node.js</span>
+            <span class="px-3 py-1 border border-white/10 text-white/60 text-xs uppercase tracking-widest hover:border-accent hover:text-accent transition-all duration-300 cursor-default">Python</span>
+            <span class="px-3 py-1 border border-white/10 text-white/60 text-xs uppercase tracking-widest hover:border-accent hover:text-accent transition-all duration-300 cursor-default">PostgreSQL</span>
+            <span class="px-3 py-1 border border-white/10 text-white/60 text-xs uppercase tracking-widest hover:border-accent hover:text-accent transition-all duration-300 cursor-default">MongoDB</span>
+            <span class="px-3 py-1 border border-white/10 text-white/60 text-xs uppercase tracking-widest hover:border-accent hover:text-accent transition-all duration-300 cursor-default">GraphQL</span>
+            <span class="px-3 py-1 border border-white/10 text-white/60 text-xs uppercase tracking-widest hover:border-accent hover:text-accent transition-all duration-300 cursor-default">REST APIs</span>
+          </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="bg-black p-12 group hover:bg-surface transition-all duration-500">
+          <div class="w-12 h-12 rounded-none bg-white/20 flex items-center justify-center mb-12 group-hover:scale-110 transition-transform duration-500">
+            <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-heading text-3xl font-bold text-white mb-8 tracking-tighter">Tools & DevOps</h3>
+          <div class="flex flex-wrap gap-3">
+            <span class="px-3 py-1 border border-white/10 text-white/60 text-xs uppercase tracking-widest hover:border-accent hover:text-accent transition-all duration-300 cursor-default">Git</span>
+            <span class="px-3 py-1 border border-white/10 text-white/60 text-xs uppercase tracking-widest hover:border-accent hover:text-accent transition-all duration-300 cursor-default">Docker</span>
+            <span class="px-3 py-1 border border-white/10 text-white/60 text-xs uppercase tracking-widest hover:border-accent hover:text-accent transition-all duration-300 cursor-default">AWS</span>
+            <span class="px-3 py-1 border border-white/10 text-white/60 text-xs uppercase tracking-widest hover:border-accent hover:text-accent transition-all duration-300 cursor-default">Vercel</span>
+            <span class="px-3 py-1 border border-white/10 text-white/60 text-xs uppercase tracking-widest hover:border-accent hover:text-accent transition-all duration-300 cursor-default">CI/CD</span>
+            <span class="px-3 py-1 border border-white/10 text-white/60 text-xs uppercase tracking-widest hover:border-accent hover:text-accent transition-all duration-300 cursor-default">Figma</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- About Section -->
+  <section id="about" class="py-32 px-6 bg-black relative">
+    <div class="max-w-screen-2xl mx-auto grid lg:grid-cols-12 gap-16 items-center">
+      <div class="lg:col-span-6">
+        <div class="aspect-square bg-surface border border-white/10 relative overflow-hidden group">
+          <div class="absolute inset-0 bg-accent/0 group-hover:bg-accent/10 transition-all duration-700"></div>
+          <div class="absolute inset-0 flex items-center justify-center">
+             <div class="w-64 h-64 rounded-full border-2 border-white/20 flex items-center justify-center p-4 group-hover:border-accent transition-all duration-500">
+                <svg class="w-32 h-32 text-white group-hover:text-accent transition-all duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
+                </svg>
+             </div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-6">
+        <p class="text-accent font-medium mb-4 uppercase tracking-[0.3em] text-sm">About Me</p>
+        <h2 class="font-heading text-6xl md:text-8xl font-extrabold text-white tracking-tighter leading-none mb-12">
+          TURNING <br>IDEAS INTO <br>REALITY
+        </h2>
+        <div class="space-y-6 text-muted text-xl font-light leading-relaxed">
+          <p>
+            With <span class="text-white font-medium">5+ years of experience</span> in web development, I've had the privilege of working with startups and established companies to build products that make a difference.
+          </p>
+          <p>
+            I believe great software is born from the intersection of clean code, intuitive design, and deep understanding of user needs. When I'm not coding, you'll find me contributing to open source or exploring the latest web technologies.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-3 gap-12 mt-16 pt-12 border-t border-white/10">
+          <div>
+            <div class="font-heading text-5xl font-extrabold text-white tracking-tighter">5+</div>
+            <div class="text-muted text-xs uppercase tracking-widest mt-2">Years Exp.</div>
+          </div>
+          <div>
+            <div class="font-heading text-5xl font-extrabold text-white tracking-tighter">50+</div>
+            <div class="text-muted text-xs uppercase tracking-widest mt-2">Projects</div>
+          </div>
+          <div>
+            <div class="font-heading text-5xl font-extrabold text-white tracking-tighter">30+</div>
+            <div class="text-muted text-xs uppercase tracking-widest mt-2">Clients</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-32 px-6 bg-surface relative">
+    <div class="max-w-screen-2xl mx-auto grid lg:grid-cols-12 gap-16">
+      <div class="lg:col-span-6">
+        <p class="text-accent font-medium mb-4 uppercase tracking-[0.3em] text-sm">Get In Touch</p>
+        <h2 class="font-heading text-6xl md:text-8xl font-extrabold text-white tracking-tighter leading-none mb-8">
+          LET'S <br>WORK <br>TOGETHER
+        </h2>
+        <p class="text-muted text-xl max-w-md font-light leading-relaxed">
+          Have a project in mind or just want to chat? I'm always open to discussing new opportunities and creative ideas.
+        </p>
+      </div>
+      <div class="lg:col-span-6">
+        <form class="grid grid-cols-1 gap-8">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="relative group">
+              <input type="text" id="name" name="name" class="w-full bg-transparent border-b border-white/20 py-4 text-white placeholder-muted focus:outline-none focus:border-accent transition-colors duration-300" placeholder="Name">
+              <label for="name" class="absolute left-0 top-0 text-xs uppercase tracking-widest text-white/40 pointer-events-none">Name</label>
+            </div>
+            <div class="relative group">
+              <input type="email" id="email" name="email" class="w-full bg-transparent border-b border-white/20 py-4 text-white placeholder-muted focus:outline-none focus:border-accent transition-colors duration-300" placeholder="Email">
+              <label for="email" class="absolute left-0 top-0 text-xs uppercase tracking-widest text-white/40 pointer-events-none">Email</label>
+            </div>
+          </div>
+          <div class="relative group">
+            <input type="text" id="subject" name="subject" class="w-full bg-transparent border-b border-white/20 py-4 text-white placeholder-muted focus:outline-none focus:border-accent transition-colors duration-300" placeholder="Subject">
+            <label for="subject" class="absolute left-0 top-0 text-xs uppercase tracking-widest text-white/40 pointer-events-none">Subject</label>
+          </div>
+          <div class="relative group">
+            <textarea id="message" name="message" rows="5" class="w-full bg-transparent border-b border-white/20 py-4 text-white placeholder-muted focus:outline-none focus:border-accent transition-colors duration-300 resize-none" placeholder="Message"></textarea>
+            <label for="message" class="absolute left-0 top-0 text-xs uppercase tracking-widest text-white/40 pointer-events-none">Message</label>
+          </div>
+          <button type="submit" class="bg-white text-black font-bold px-12 py-6 uppercase tracking-tighter hover:bg-accent transition-all duration-300 w-fit">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 px-6 bg-black border-t border-white/10">
+    <div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+      <div class="flex items-center gap-4">
+        <span class="font-heading font-bold text-2xl tracking-tighter text-white">
+          ALEX<span class="text-accent">.</span>CHEN
+        </span>
+        <div class="h-4 w-px bg-white/20 hidden md:block"></div>
+        <span class="text-muted text-sm uppercase tracking-widest">© 2026</span>
+      </div>
+      <div class="flex gap-8">
+        <a href="#" class="text-white/60 hover:text-accent transition-colors duration-300" aria-label="GitHub">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+        <a href="#" class="text-white/60 hover:text-accent transition-colors duration-300" aria-label="LinkedIn">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="#" class="text-white/60 hover:text-accent transition-colors duration-300" aria-label="Twitter">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const cursor = document.getElementById('cursor');
+    
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+
+    document.querySelectorAll('a, button, input, textarea').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
+    });
+  </script>
+</body>
+</html>

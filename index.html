@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bhavish S - Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <header class="navbar brutal-border-b">
+    <a href="#hero" class="logo brutal-box bg-yellow" aria-label="Home">BS</a>
+    <nav id="navLinks" class="nav-links">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#experience" class="nav-link">Experience</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#certifications" class="nav-link">Certs</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="hero" class="hero">
+      <div class="marquee brutal-border-y bg-yellow">
+        <div class="marquee-content font-display">
+          CYBERSECURITY STUDENT • ETHICAL HACKING • SIEM • SOC • FULL STACK ENGINEER • YVB&CO CFO • CYBERSECURITY STUDENT • ETHICAL HACKING • SIEM • SOC • FULL STACK ENGINEER • YVB&CO CFO • 
+        </div>
+      </div>
+      <div class="grid-container main-grid mt-12">
+        <div class="hero-meta">
+          <span class="brutal-chip bg-blue text-white shadow-none">[ STATUS: AVAILABLE ]</span>
+          <span class="brutal-chip bg-red text-white shadow-none mt-2">[ LOCATION: MYSORE, INDIA ]</span>
+        </div>
+
+        <div class="hero-content">
+          <h1 class="hero-title font-display text-stroke">BHAVISH S</h1>
+          <p class="hero-sub font-mono font-bold">Google-certified Cybersecurity student building SIEM dashboards, penetration-testing tools, and secure systems — while leading finance, revenue strategy, and client growth at my own software studio, YVB&Co.</p>
+          
+          <div class="hero-actions mt-6">
+            <button class="brutal-btn bg-red text-white hover-push font-display text-2xl" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">VIEW PROJECTS</button>
+            <a href="resume.pdf" class="brutal-btn bg-white text-black hover-push font-display text-2xl ml-4" target="_blank">DOWNLOAD RESUME <span class="arrow">↗</span></a>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about mt-16 pt-16 brutal-border-t bg-white">
+      <div class="grid-container">
+        <div class="section-meta mb-8">
+          <span class="brutal-chip bg-yellow text-black">[ SECTION: 01 ] BIOGRAPHY</span>
+        </div>
+        <div class="grid-container main-grid">
+          <div class="about-visual">
+            <div class="image-stack brutal-border bg-blue brutal-shadow w-full h-full aspect-square">
+              <img src="assets/images/about-image-new.jpg" alt="About Bhavish portrait" class="w-full h-full object-cover">
+            </div>
+          </div>
+          <div class="about-content col-span-2 brutal-card bg-white p-8">
+            <h2 class="font-display text-6xl mb-6 uppercase">ABOUT ME</h2>
+            <p class="mb-4 font-bold text-lg">I'm a Google-certified Cybersecurity student pursuing my Bachelor of Engineering in Computer Science & Engineering at Maharaja Institute of Technology, Mysore. I have hands-on experience in Security Information and Event Management (SIEM), penetration testing, and network security, alongside strong software-engineering and algorithmic problem-solving skills.</p>
+            <p class="font-bold text-lg">I've built and deployed a SIEM dashboard, an automated penetration-testing toolkit, and a satellite-imagery-driven road-network resilience platform for ISRO's Bharatiya Antariksh Hackathon (BAH) 2026. I've also contributed institutionally-adopted software at my college, earning an official Appreciation Letter — and I currently lead finance, revenue strategy, and client growth at YVB&Co, an independent software studio I help run with a six-person team.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="skills mt-16 pt-16 pb-16 bg-blue brutal-border-y">
+      <div class="grid-container">
+        <div class="section-meta mb-8">
+          <span class="brutal-chip bg-red text-white">[ SECTION: 02 ] CAPABILITIES</span>
+        </div>
+        <h2 class="font-display text-6xl mb-8 uppercase text-white">TECHNICAL SKILLS</h2>
+
+        <div class="grid-2x2 gap-6">
+          <div class="skill-group brutal-card bg-white p-6">
+            <h3 class="font-mono font-bold border-b-3 border-black pb-2 mb-4 inline-block uppercase">Programming</h3>
+            <div class="flex gap-2 flex-wrap mt-2">
+              <span class="brutal-tag">Python</span><span class="brutal-tag">Go</span><span class="brutal-tag">TypeScript</span><span class="brutal-tag">JavaScript</span><span class="brutal-tag">HTML/CSS</span>
+            </div>
+          </div>
+          <div class="skill-group brutal-card bg-white p-6">
+            <h3 class="font-mono font-bold border-b-3 border-black pb-2 mb-4 inline-block uppercase">Cybersecurity</h3>
+            <div class="flex gap-2 flex-wrap mt-2">
+              <span class="brutal-tag">SIEM & Log Correlation</span><span class="brutal-tag">Penetration Testing</span><span class="brutal-tag">Vulnerability Assessment</span><span class="brutal-tag">Incident Response</span><span class="brutal-tag">Network Security</span><span class="brutal-tag">Nmap</span>
+            </div>
+          </div>
+          <div class="skill-group brutal-card bg-white p-6">
+            <h3 class="font-mono font-bold border-b-3 border-black pb-2 mb-4 inline-block uppercase">Frameworks & Libraries</h3>
+            <div class="flex gap-2 flex-wrap mt-2">
+              <span class="brutal-tag">React</span><span class="brutal-tag">Vite</span><span class="brutal-tag">Tailwind CSS</span><span class="brutal-tag">Recharts</span>
+            </div>
+          </div>
+          <div class="skill-group brutal-card bg-white p-6">
+            <h3 class="font-mono font-bold border-b-3 border-black pb-2 mb-4 inline-block uppercase">Databases, Cloud & DevOps</h3>
+            <div class="flex gap-2 flex-wrap mt-2">
+              <span class="brutal-tag">PostgreSQL</span><span class="brutal-tag">Supabase</span><span class="brutal-tag">Vercel</span><span class="brutal-tag">Git</span><span class="brutal-tag">GitHub</span><span class="brutal-tag">GitHub Actions</span>
+            </div>
+          </div>
+          <div class="skill-group brutal-card bg-white p-6 col-span-2">
+            <h3 class="font-mono font-bold border-b-3 border-black pb-2 mb-4 inline-block uppercase">Other</h3>
+            <div class="flex gap-2 flex-wrap mt-2">
+              <span class="brutal-tag">Data Structures & Algorithms</span><span class="brutal-tag">Dynamic Programming</span><span class="brutal-tag">Graph Algorithms</span><span class="brutal-tag">Geospatial & Satellite Image Analysis</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2x2 gap-6 mt-8">
+          <div class="capability-card brutal-card bg-yellow p-6 text-black">
+            <span class="brutal-chip bg-white text-black mb-4 inline-block shadow-none">Role: Security Researcher</span>
+            <p class="font-bold">Hands-on labs on TryHackMe and Hack The Box covering network security, web exploitation, privilege escalation, reconnaissance, and incident response.</p>
+          </div>
+          <div class="capability-card brutal-card bg-red text-white p-6">
+            <span class="brutal-chip bg-white text-black mb-4 inline-block shadow-none">Role: Full-Stack Developer</span>
+            <p class="font-bold">Building production tools end-to-end — Python/Go backends, React/TypeScript frontends, PostgreSQL/Supabase data layers, deployed on Vercel.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION & EXPERIENCE -->
+    <section id="experience" class="experience mt-16">
+      <div class="grid-container">
+        <div class="section-meta mb-8">
+          <span class="brutal-chip bg-yellow text-black">[ SECTION: 03 ] ACADEMICS & PROFESSIONAL</span>
+        </div>
+        
+        <div class="grid-2x2 gap-8">
+          <div class="col-left">
+            <h2 class="font-display text-6xl mb-6 uppercase">EDUCATION</h2>
+            <div class="brutal-card bg-white p-6">
+              <div class="card-header mb-4">
+                <span class="brutal-badge bg-blue text-white mb-2 inline-block">Institution</span>
+                <h3 class="font-display text-3xl uppercase">MAHARAJA INSTITUTE OF TECHNOLOGY, MYSORE</h3>
+              </div>
+              <div class="card-body">
+                <p class="font-bold"><strong>Bachelor of Engineering — Computer Science & Engineering.</strong> Coursework and self-driven projects spanning cybersecurity, algorithms, and full-stack development; co-developed institution-wide software (ERP, No-Due Clearance, Hall Ticket Generation) now in active use.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-right">
+            <h2 class="font-display text-6xl mb-6 uppercase">EXPERIENCE</h2>
+            <div class="brutal-card bg-white p-6 mb-6">
+              <div class="card-header mb-4">
+                <span class="brutal-badge bg-red text-white mb-2 inline-block">Current</span>
+                <h3 class="font-display text-3xl uppercase">CFO & CRO — YVB&CO</h3>
+              </div>
+              <p class="font-bold mb-4">Independent software studio (6-person team) building custom software, ERP systems, and digital products. Leading finance, revenue strategy, and client growth from first conversation to shipped product.</p>
+              <a href="https://yvb-co.vercel.app" target="_blank" class="brutal-link bg-yellow font-bold uppercase p-2 border-3 border-black inline-block hover-push">yvb-co.vercel.app ↗</a>
+            </div>
+            <div class="brutal-card bg-white p-6">
+              <div class="card-header mb-4">
+                <span class="brutal-badge bg-white text-black border-3 border-black mb-2 inline-block">2025–Present</span>
+                <h3 class="font-display text-3xl uppercase">CYBERSECURITY LABS</h3>
+              </div>
+              <p class="font-bold">TryHackMe & Hack The Box labs covering network security, web exploitation, privilege escalation, reconnaissance, incident response.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPANY -->
+    <section id="company" class="company mt-16 pt-16 pb-16 bg-red brutal-border-y text-white">
+      <div class="grid-container">
+        <div class="grid-2x2 gap-8">
+          <div class="company-main">
+            <span class="brutal-chip bg-white text-black mb-4 inline-block shadow-none">[ PARTNER STUDIO ]</span>
+            <h2 class="font-display text-8xl uppercase mb-2">YVB&CO</h2>
+            <p class="company-tagline font-display text-3xl bg-black text-yellow inline-block p-2 border-3 border-white mb-6 uppercase">ENGINEER YOUR VISION.</p>
+            <p class="font-bold text-lg mb-6">YVB&Co is an independent technology studio based in India, operating globally. We're a team of six engineers and designers building websites, apps, ERP systems, and tools around the way businesses actually work — not the other way around. I serve as <strong>CFO and CRO</strong>, leading the company's finances and revenue growth.</p>
+            <a href="https://yvb-co.vercel.app/" target="_blank" class="brutal-btn bg-yellow text-black font-display text-2xl hover-push">VISIT YVB&CO ↗</a>
+          </div>
+
+          <div class="company-stats grid-2x2 gap-4">
+            <div class="brutal-card bg-white text-black p-6 flex flex-col justify-center items-center text-center">
+              <span class="font-display text-6xl block">02</span>
+              <span class="font-mono font-bold uppercase text-sm block mt-2">Core Systems Deployed</span>
+            </div>
+            <div class="brutal-card bg-white text-black p-6 flex flex-col justify-center items-center text-center">
+              <span class="font-display text-6xl block">06+</span>
+              <span class="font-mono font-bold uppercase text-sm block mt-2">Engineers & Designers</span>
+            </div>
+            <div class="brutal-card bg-white text-black p-6 flex flex-col justify-center items-center text-center">
+              <span class="font-display text-6xl block">100%</span>
+              <span class="font-mono font-bold uppercase text-sm block mt-2">Independent & Self-Funded</span>
+            </div>
+            <div class="brutal-card bg-white text-black p-6 flex flex-col justify-center items-center text-center">
+              <span class="font-display text-6xl block">IN</span>
+              <span class="font-mono font-bold uppercase text-sm block mt-2">Based in India</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="projects mt-16">
+      <div class="grid-container">
+        <div class="section-meta mb-8 text-center">
+          <span class="brutal-chip bg-yellow text-black">[ SECTION: 05 ] WORK</span>
+        </div>
+        <h2 class="font-display text-7xl uppercase mb-12 text-center">PROJECTS</h2>
+
+        <div class="grid-auto gap-8">
+          <!-- Project 1 -->
+          <article class="brutal-card bg-white hover-push">
+            <div class="p-6">
+              <div class="flex gap-2 flex-wrap mb-4">
+                <span class="brutal-tag text-xs">Productivity/SaaS</span>
+              </div>
+              <h3 class="font-display text-2xl uppercase mb-2">UniConv</h3>
+              <p class="font-bold text-sm mb-4">The Ultimate File Converter. A full-stack, browser-based file conversion and manipulation platform. Convert, merge, compress, secure, and edit PDFs, images, and audio files instantly.</p>
+              <a href="https://uniconv-psi.vercel.app/" target="_blank" class="brutal-btn bg-black text-white w-full text-center text-lg mt-4">VIEW LIVE ↗</a>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="brutal-card bg-white hover-push">
+            <div class="p-6">
+              <div class="flex gap-2 flex-wrap mb-4">
+                <span class="brutal-tag text-xs">EdTech/SaaS</span>
+              </div>
+              <h3 class="font-display text-2xl uppercase mb-2">NOC Portal</h3>
+              <p class="font-bold text-sm mb-4">No Due Clearance Management System. A multi-tenant SaaS platform that digitizes the entire No Due Certificate process for colleges, with an integrated payment pipeline.</p>
+              <a href="https://noc-portal-self.vercel.app/" target="_blank" class="brutal-btn bg-black text-white w-full text-center text-lg mt-4">VIEW LIVE ↗</a>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="brutal-card bg-white hover-push">
+            <div class="p-6">
+              <div class="flex gap-2 flex-wrap mb-4">
+                <span class="brutal-tag text-xs">EdTech/SaaS</span>
+              </div>
+              <h3 class="font-display text-2xl uppercase mb-2">ERP Client</h3>
+              <p class="font-bold text-sm mb-4">Academic Ops Platform. A governance-first, multi-tenant academic operations system covering the full academic lifecycle with strict RBAC and immutable audit logging.</p>
+              <a href="https://erp-client-9lbk.vercel.app/" target="_blank" class="brutal-btn bg-black text-white w-full text-center text-lg mt-4">VIEW LIVE ↗</a>
+            </div>
+          </article>
+        </div>
+
+        <div id="hidden-projects" style="display: none;" class="grid-auto gap-8 mt-8">
+          <!-- Project 4 -->
+          <article class="brutal-card bg-white hover-push">
+            <div class="p-6">
+              <div class="flex gap-2 flex-wrap mb-4">
+                <span class="brutal-tag text-xs">EdTech/SaaS</span>
+              </div>
+              <h3 class="font-display text-2xl uppercase mb-2">MITM PlacePro</h3>
+              <p class="font-bold text-sm mb-4">Intelligent Campus Placement Management System connecting placement officers, students, and companies in one system for drives, assessments, and hiring.</p>
+              <a href="https://mitm-placepro.vercel.app/" target="_blank" class="brutal-btn bg-black text-white w-full text-center text-lg mt-4">VIEW LIVE ↗</a>
+            </div>
+          </article>
+
+          <!-- Project 5 -->
+          <article class="brutal-card bg-white hover-push">
+            <div class="p-6">
+              <div class="flex gap-2 flex-wrap mb-4">
+                <span class="brutal-tag text-xs">EdTech/Research</span>
+              </div>
+              <h3 class="font-display text-2xl uppercase mb-2">Jnanashodha</h3>
+              <p class="font-bold text-sm mb-4">Research Admissions & Management Portal. Digitizes the complete VTU-compliant Ph.D lifecycle for MIT Mysore from candidate registration through graduation.</p>
+              <a href="https://mitm-rd.vercel.app/" target="_blank" class="brutal-btn bg-black text-white w-full text-center text-lg mt-4">VIEW LIVE ↗</a>
+            </div>
+          </article>
+
+          <!-- Project 6 -->
+          <article class="brutal-card bg-white hover-push">
+            <div class="p-6">
+              <div class="flex gap-2 flex-wrap mb-4">
+                <span class="brutal-tag text-xs">Community/Consumer</span>
+              </div>
+              <h3 class="font-display text-2xl uppercase mb-2">PetCommunity</h3>
+              <p class="font-bold text-sm mb-4">Connect, Match & Care. A community platform for pet owners to find compatible pets, connect with verified veterinary care, and share expert advice.</p>
+              <a href="https://petcommunity-puce.vercel.app/" target="_blank" class="brutal-btn bg-black text-white w-full text-center text-lg mt-4">VIEW LIVE ↗</a>
+            </div>
+          </article>
+        </div>
+        
+        <div class="text-center mt-12">
+          <button id="toggle-projects-btn" class="brutal-btn bg-yellow text-black hover-push font-display text-2xl cursor-pointer" onclick="document.getElementById('hidden-projects').style.display='grid'; this.style.display='none';">VIEW MORE PROJECTS ↓</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications" class="certs mt-16 pt-16 pb-16 bg-yellow brutal-border-y">
+      <div class="grid-container">
+        <div class="section-meta mb-8">
+          <span class="brutal-chip bg-black text-white">[ SECTION: 06 ] VALIDATION</span>
+        </div>
+        <h2 class="font-display text-6xl mb-8 uppercase text-black">CERTIFICATIONS</h2>
+
+        <div class="grid-auto gap-6">
+          <article class="brutal-card bg-white hover-push col-span-2 flex items-stretch">
+            <div class="p-6 border-r-3 border-black flex items-center justify-center min-w-32 bg-blue">
+              <img src="assets/images/cert-01.png" alt="Google Cybersecurity" class="w-16 h-16 object-contain">
+            </div>
+            <div class="p-6 w-full flex flex-col justify-between">
+              <div>
+                <span class="brutal-badge bg-red text-white mb-2 inline-block">Primary</span>
+                <h3 class="font-display text-3xl uppercase mb-2">Google Cybersecurity Professional Certificate</h3>
+              </div>
+              <div class="flex justify-between items-end mt-4">
+                <span class="font-mono font-bold text-sm bg-black text-white p-1">completed Feb 11, 2026</span>
+                <a href="https://coursera.org/verify/professional-cert/I4I0BFTGQ6G2" target="_blank" class="brutal-btn bg-white text-black p-2 px-4 text-sm hover-bg-blue">Verify ↗</a>
+              </div>
+            </div>
+          </article>
+          
+          <article class="brutal-card bg-white p-4 flex flex-col items-center text-center hover-straight">
+            <img src="assets/images/cert-02.png" alt="Foundations" class="w-16 h-16 border-3 border-black mb-4">
+            <h4 class="font-bold">Foundations of Cybersecurity</h4>
+          </article>
+          <article class="brutal-card bg-white p-4 flex flex-col items-center text-center hover-straight">
+            <img src="assets/images/cert-03.png" alt="Play It Safe" class="w-16 h-16 border-3 border-black mb-4">
+            <h4 class="font-bold">Play It Safe: Security Risks</h4>
+          </article>
+          <article class="brutal-card bg-white p-4 flex flex-col items-center text-center hover-straight">
+            <img src="assets/images/cert-04.png" alt="Networks" class="w-16 h-16 border-3 border-black mb-4">
+            <h4 class="font-bold">Networks and Network Security</h4>
+          </article>
+          <article class="brutal-card bg-white p-4 flex flex-col items-center text-center hover-straight">
+            <img src="assets/images/cert-05.png" alt="Linux SQL" class="w-16 h-16 border-3 border-black mb-4">
+            <h4 class="font-bold">Tools of the Trade: Linux SQL</h4>
+          </article>
+          <article class="brutal-card bg-white p-4 flex flex-col items-center text-center hover-straight">
+            <img src="assets/images/cert-06.png" alt="Threats" class="w-16 h-16 border-3 border-black mb-4">
+            <h4 class="font-bold">Assets, Threats, Vulnerabilities</h4>
+          </article>
+          <article class="brutal-card bg-white p-4 flex flex-col items-center text-center hover-straight">
+            <img src="assets/images/cert-07.png" alt="Detection" class="w-16 h-16 border-3 border-black mb-4">
+            <h4 class="font-bold">Detection and Response</h4>
+          </article>
+          <article class="brutal-card bg-white p-4 flex flex-col items-center text-center hover-straight">
+            <img src="assets/images/cert-08.png" alt="Capstone" class="w-16 h-16 border-3 border-black mb-4">
+            <h4 class="font-bold">Cybersecurity Capstone</h4>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements" class="achievements mt-16">
+      <div class="grid-container">
+        <div class="section-meta mb-8">
+          <span class="brutal-chip bg-blue text-white">[ SECTION: 07 ] MILESTONES</span>
+        </div>
+        <h2 class="font-display text-6xl mb-8 uppercase text-black">ACHIEVEMENTS</h2>
+        <div class="grid-2x2 gap-6">
+
+          <div class="brutal-card bg-white p-8 hover-push">
+            <h3 class="font-display text-3xl uppercase border-b-3 border-black pb-4 mb-4">Official Appreciation Letter — MIT Mysore</h3>
+            <p class="font-bold text-lg">Recognized for co-developing and deploying institution-wide academic operational software (ERP, No-Due Clearance, Hall Ticket systems).</p>
+          </div>
+          <div class="brutal-card bg-white p-8 hover-push col-span-2">
+            <h3 class="font-display text-3xl uppercase border-b-3 border-black pb-4 mb-4">GoPayana — Certificate of Participation</h3>
+            <p class="font-bold text-lg">Acknowledged for active participation in the GoPayana Marketing Campaign, signed by CEO Pruthvi R S.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact mt-16 pt-16 brutal-border-t">
+      <div class="grid-container">
+        <div class="grid-2x2 gap-12">
+          <div class="contact-text">
+            <h2 class="font-display text-8xl uppercase mb-4">GET IN TOUCH</h2>
+            <p class="font-display text-3xl uppercase bg-yellow inline-block p-2 border-3 border-black mb-8 shadow-none">Let's build something structural.</p>
+            <div class="contact-info">
+              <div class="mb-8">
+                <span class="brutal-badge bg-white text-black mb-2 inline-block">Email</span>
+                <a href="mailto:x.bhavish.s@gmail.com" class="font-display text-4xl block hover-text-red">x.bhavish.s@gmail.com</a>
+              </div>
+              <div>
+                <span class="brutal-badge bg-white text-black mb-2 inline-block">Socials</span>
+                <div class="flex gap-4 mt-2">
+                  <a href="https://www.linkedin.com/in/bhavish-s-/" target="_blank" class="brutal-btn bg-white hover-push">LinkedIn ↗</a>
+                  <a href="https://www.instagram.com/bhavish_s_/" target="_blank" class="brutal-btn bg-white hover-push">Instagram ↗</a>
+                  <a href="https://github.com/Bhavish-S" target="_blank" class="brutal-btn bg-white hover-push">GitHub ↗</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="contact-form brutal-card bg-white p-8">
+            <div class="form-group mb-6">
+              <label class="font-mono font-bold uppercase block mb-2 text-lg">NAME</label>
+              <input type="text" placeholder="Your Name" class="brutal-input">
+            </div>
+            <div class="form-group mb-6">
+              <label class="font-mono font-bold uppercase block mb-2 text-lg">EMAIL</label>
+              <input type="email" placeholder="your@email.com" class="brutal-input">
+            </div>
+            <div class="form-group mb-6">
+              <label class="font-mono font-bold uppercase block mb-2 text-lg">MESSAGE</label>
+              <textarea rows="5" placeholder="What's on your mind?" class="brutal-input"></textarea>
+            </div>
+            <button class="brutal-btn bg-red text-white w-full text-2xl hover-push mt-4">SEND MESSAGE</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-black text-white brutal-border-t p-8 mt-16">
+    <div class="grid-container flex justify-between items-center">
+      <span class="font-mono font-bold">© 2026 BHAVISH S. BUILT WITH RAW PRECISION.</span>
+      <a href="#hero" class="font-display text-2xl hover-text-yellow">TOP ↗</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
