@@ -297,26 +297,35 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!prefersReducedMotion) {
     const typewriterEl = document.getElementById('hero-typewriter');
     if (typewriterEl) {
-      const fullText = typewriterEl.textContent;
+      const fullText = typewriterEl.textContent.trim();
       typewriterEl.textContent = '';
-      typewriterEl.classList.add('typed');
-      
-      let charIndex = 0;
-      const typeSpeed = 20; // ms per character
 
-      function typeChar() {
-        if (charIndex < fullText.length) {
+      let charIndex = 0;
+      let lastTime = 0;
+      const charDelay = 18; // ms per character
+
+      function typeStep(timestamp) {
+        if (!lastTime) lastTime = timestamp;
+        const elapsed = timestamp - lastTime;
+
+        if (elapsed >= charDelay && charIndex < fullText.length) {
           typewriterEl.textContent += fullText.charAt(charIndex);
           charIndex++;
-          setTimeout(typeChar, typeSpeed);
+          lastTime = timestamp;
+        }
+
+        if (charIndex < fullText.length) {
+          requestAnimationFrame(typeStep);
         } else {
-          typewriterEl.classList.remove('typed');
-          typewriterEl.classList.add('done');
+          // Typing complete — remove cursor after a beat
+          setTimeout(() => {
+            typewriterEl.classList.add('done');
+          }, 1200);
         }
       }
 
-      // Small delay before starting
-      setTimeout(typeChar, 800);
+      // Start after a short delay
+      setTimeout(() => requestAnimationFrame(typeStep), 600);
     }
   }
 
