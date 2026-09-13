@@ -346,16 +346,17 @@ document.addEventListener('DOMContentLoaded', () => {
         osc.connect(gain);
         gain.connect(audioCtx.destination);
         
-        // Terminal "tick" sound profile (sharp, quiet, random pitch)
-        osc.type = 'square';
-        osc.frequency.setValueAtTime(300 + Math.random() * 150, audioCtx.currentTime);
+        // Mechanical "clack" sound profile (rapid frequency drop for percussive strike)
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(1000, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 0.015);
         
-        // Very fast envelope
-        gain.gain.setValueAtTime(0.015, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.02);
+        // Very fast envelope for a crisp strike
+        gain.gain.setValueAtTime(0.4, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.015);
         
         osc.start(audioCtx.currentTime);
-        osc.stop(audioCtx.currentTime + 0.03);
+        osc.stop(audioCtx.currentTime + 0.02);
       }
 
       // Resume audio context on first click if they interact while typing
@@ -370,14 +371,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const elapsed = timestamp - lastTime;
 
         if (elapsed >= charDelay && charIndex < fullText.length) {
-          typewriterEl.textContent += fullText.charAt(charIndex);
-          charIndex++;
-          lastTime = timestamp;
+          const char = fullText.charAt(charIndex);
+          typewriterEl.textContent += char;
           
-          // Play sound every few characters to prevent overlapping noise on fast typing
-          if (charIndex % 2 === 0) {
+          // Play sound perfectly synced to every character
+          if (char !== ' ') {
             playTypeSound();
           }
+
+          charIndex++;
+          lastTime = timestamp;
         }
 
         if (charIndex < fullText.length) {
