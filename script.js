@@ -284,6 +284,29 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ========================================================================
+  // MOBILE NAVIGATION TOGGLE
+  // ========================================================================
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const navLinksContainer = document.getElementById('navLinks');
+  
+  if (mobileMenuToggle && navLinksContainer) {
+    mobileMenuToggle.addEventListener('click', () => {
+      const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+      mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
+      navLinksContainer.classList.toggle('nav-open');
+    });
+
+    // Close menu when a link is clicked
+    const navLinks = navLinksContainer.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        navLinksContainer.classList.remove('nav-open');
+      });
+    });
+  }
+
+  // ========================================================================
   // PHASE 6 — LIGHTBOX
   // ========================================================================
   const lightbox = document.getElementById('lightbox');
