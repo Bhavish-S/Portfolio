@@ -333,52 +333,12 @@ document.addEventListener('DOMContentLoaded', () => {
       let lastTime = 0;
       const charDelay = 18; // ms per character
 
-      // Web Audio API for synthetic terminal typing sound
-      let audioCtx = null;
-      function playTypeSound() {
-        if (!audioCtx) {
-          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        }
-        if (audioCtx.state !== 'running') return; // Blocked by autoplay policy
-
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-        
-        // Mechanical "clack" sound profile (rapid frequency drop for percussive strike)
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(1000, audioCtx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 0.015);
-        
-        // Very fast envelope for a crisp strike
-        gain.gain.setValueAtTime(0.4, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.015);
-        
-        osc.start(audioCtx.currentTime);
-        osc.stop(audioCtx.currentTime + 0.02);
-      }
-
-      // Resume audio context on first click if they interact while typing
-      document.addEventListener('click', () => {
-        if (audioCtx && audioCtx.state === 'suspended') {
-          audioCtx.resume();
-        }
-      }, { once: true });
-
       function typeStep(timestamp) {
         if (!lastTime) lastTime = timestamp;
         const elapsed = timestamp - lastTime;
 
         if (elapsed >= charDelay && charIndex < fullText.length) {
-          const char = fullText.charAt(charIndex);
-          typewriterEl.textContent += char;
-          
-          // Play sound perfectly synced to every character
-          if (char !== ' ') {
-            playTypeSound();
-          }
-
+          typewriterEl.textContent += fullText.charAt(charIndex);
           charIndex++;
           lastTime = timestamp;
         }
