@@ -333,6 +333,38 @@ document.addEventListener('DOMContentLoaded', () => {
       let lastTime = 0;
       const charDelay = 18; // ms per character
 
+      // Web Audio API for synthetic terminal typing sound
+      let audioCtx = null;
+      function playTypeSound() {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state !== 'running') return; // Blocked by autoplay policy
+
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        
+        // Terminal "tick" sound profile (sharp, quiet, random pitch)
+        osc.type = 'square';
+        osc.frequency.setValueAtTime(300 + Math.random() * 150, audioCtx.currentTime);
+        
+        // Very fast envelope
+        gain.gain.setValueAtTime(0.015, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.02);
+        
+        osc.start(audioCtx.currentTime);
+        osc.stop(audioCtx.currentTime + 0.03);
+      }
+
+      // Resume audio context on first click if they interact while typing
+      document.addEventListener('click', () => {
+        if (audioCtx && audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+      }, { once: true });
+
       function typeStep(timestamp) {
         if (!lastTime) lastTime = timestamp;
         const elapsed = timestamp - lastTime;
@@ -341,6 +373,11 @@ document.addEventListener('DOMContentLoaded', () => {
           typewriterEl.textContent += fullText.charAt(charIndex);
           charIndex++;
           lastTime = timestamp;
+          
+          // Play sound every few characters to prevent overlapping noise on fast typing
+          if (charIndex % 2 === 0) {
+            playTypeSound();
+          }
         }
 
         if (charIndex < fullText.length) {
